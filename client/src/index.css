@@ -48,13 +48,40 @@ tbody tr:nth-child(even) {
 
 table {
   margin: 0 auto;
+  width: 100%;
 
 }
 
-.table-row-responsible-level:hover {
-  background-color: #f2f2f2
-    /* background-color: rgb(214, 210, 210); */
-    /* background-color: rgb(111, 209, 248); */
+.table-row-top-level {
+  position: sticky;
+  top: 70px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.table-row-top-level:hover {
+  background-color: #f2f2f2;
+}
+
+.table-row-sub-level {
+  cursor: pointer;
+}
+
+
+.table-row-sub-level:hover {
+  background-color: #f2f2f2;
+}
+
+.table-row-buttom-level {
+  cursor: default;
+}
+
+.table-row-buttom-level:hover {
+  background-color: #f2f2f2;
+}
+
+.quantity-claims-in-table {
+  text-align: center;
 }
 
 .th-table-header {
@@ -167,7 +194,7 @@ table {
 }
 
 .reload-data-link {
-  text-decoration:none;
+  text-decoration: none;
   color: black;
 }
 

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import {
   getSumClaimsInGroup, getSumClaimsFromTheFilingDays, getSumClaimsFromTheFilingDaysOver,
   getSumClaimsResponsible, getSumClaimsFromTheFilingDaysForResponsible,
   getSumClaimsFromTheFilingDaysForResponsibleOver,
   getSumClaimsResponsibleAndStage, getSumClaimsFromTheFilingDaysForResponsibleAndStages,
-  getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver, getSumCommonAll, getSumClaimsFromTheFilingDaysOver1095,
+  getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver, getSumClaimsFromTheFilingDaysOver1095,
   getSumClaimsFromTheFilingDaysForResponsibleOver1095, getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver1095
 } from "../../calculations/get-sum-claims";
 
@@ -29,8 +30,6 @@ export function GroupLevel(
 
   const navigate = useNavigate();
   const [selectedPeriod, setSelectedPeriod] = useState(null);
-
-  // getSumClaimsFromTheFilingDays
 
   const sortedGroups = groups ? [...groups] : null;
 
@@ -64,47 +63,48 @@ export function GroupLevel(
 
   if (sortedGroups !== null) {
     return (
-      <table style={{ width: "100%" }}>
+      <table>
         <TableHeaderGeneralList
           setSelectedPeriod={setSelectedPeriod}
-          nameOfTableHeader="Группы - сотрудники - стадии: " />
-        {
-          sortedGroups
-            .sort((a, b) => {
-              if (selectedPeriod === null) {
-                return getSumClaimsInGroup(b) - getSumClaimsInGroup(a);
-              }
-              else if (selectedPeriod === 21) {
-                return getSumClaimsFromTheFilingDaysOver(b, 21) - getSumClaimsFromTheFilingDaysOver(a, 21);
-              }
-              else if (selectedPeriod === 1095) {
-                return getSumClaimsFromTheFilingDaysOver1095(b) - getSumClaimsFromTheFilingDaysOver1095(a);
-              }
-              return getSumClaimsFromTheFilingDays(b, selectedPeriod) - getSumClaimsFromTheFilingDays(a, selectedPeriod);
-            })
-            .map((group) => {
-              return <tbody>
-                <tr
-                  className="table-row-responsible-level"
-                  style={{
-                    position: "sticky", top: "70px",
-                    cursor: "pointer",
-                    fontWeight: "600",
-                  }}
-                >
-                  <td onClick={(event) => { toggleRowsAccordeon(event, group.groupName) }}>&nbsp;&nbsp;&nbsp;{group.groupName}</td>
-                  <td>
-                    <span onClick={() => showCaimsGroups(group.groupName)}>&nbsp;&nbsp;{getSumClaimsInGroup(group)}</span>
+          nameOfTableHeader="Группы - сотрудники - стадии: "
+        />
+        {sortedGroups
+          .sort((a, b) => {
+            if (selectedPeriod === null) {
+              return getSumClaimsInGroup(b) - getSumClaimsInGroup(a);
+            }
+            else if (selectedPeriod === 21) {
+              return getSumClaimsFromTheFilingDaysOver(b, 21) - getSumClaimsFromTheFilingDaysOver(a, 21);
+            }
+            else if (selectedPeriod === 1095) {
+              return getSumClaimsFromTheFilingDaysOver1095(b) - getSumClaimsFromTheFilingDaysOver1095(a);
+            }
+            return getSumClaimsFromTheFilingDays(b, selectedPeriod) - getSumClaimsFromTheFilingDays(a, selectedPeriod);
+          })
+          .map((group) => {
+            return (
+              <tbody>
+                <tr key={group.groupName} className="table-row-top-level">
+                  <td onClick={(event) => { toggleRowsAccordeon(event, group.groupName) }}>
+                    &nbsp;&nbsp;&nbsp;{group.groupName}
                   </td>
-                  {periods.map(period => <td style={{ textAlign: "center" }}>
-                    <span onClick={() => showCaimsGroups(group.groupName, period.num)}>{getSumClaimsFromTheFilingDays(group, period.num)}
-                    </span></td>)}
-                  <td style={{ textAlign: "center" }}>
+                  <td>
+                    <span onClick={() => showCaimsGroups(group.groupName)}>
+                      &nbsp;&nbsp;{getSumClaimsInGroup(group)}
+                    </span>
+                  </td>
+                  {periods.map(period => <td className="quantity-claims-in-table">
+                    <span onClick={() => showCaimsGroups(group.groupName, period.num)}>
+                      {getSumClaimsFromTheFilingDays(group, period.num)}
+                    </span>
+                  </td>
+                  )}
+                  <td className="quantity-claims-in-table">
                     <span onClick={() => showCaimsGroups(group.groupName, 21)}>
                       {getSumClaimsFromTheFilingDaysOver(group, 20)}
                     </span>
                   </td>
-                  <td style={{ textAlign: "center" }}>
+                  <td className="quantity-claims-in-table">
                     <span onClick={() => showCaimsGroups(group.groupName, 1095)}>
                       {getSumClaimsFromTheFilingDaysOver1095(group)}
                     </span>
@@ -124,26 +124,36 @@ export function GroupLevel(
                       }
                       return getSumClaimsFromTheFilingDaysForResponsible(group, selectedPeriod, b) - getSumClaimsFromTheFilingDaysForResponsible(group, selectedPeriod, a);
                     })
-
-                    // .sort((a, b) => {
-                    //   return getSumClaimsResponsible(group, b) - getSumClaimsResponsible(group, a)
-
-                    // если а должно идти выше б, то надо вернуть положительное
-                    // если б должно идти выше а, то надо вернуть отрицательное
-                    //})
                     .map(responsible => {
                       return <>
-                        <tr className="table-row-responsible-level" style={{ cursor: "pointer" }}>
+                        <tr className="table-row-sub-level">
                           <td onClick={(event) => {
                             toggleRowsAccordeon(event, responsible);
-                          }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{responsible}</td>
-                          <td><span onClick={() => showCaims(group.groupName, responsible)}>&nbsp;&nbsp;{getSumClaimsResponsible(group, responsible)}</span></td>
-                          {periods.map(period => <td style={{ textAlign: "center" }}><span onClick={() => showCaims(group.groupName, responsible, period.num)}>{getSumClaimsFromTheFilingDaysForResponsible(group, period.num, responsible)}</span></td>)}
-                          <td style={{ textAlign: "center" }}><span onClick={() => showCaims(group.groupName, responsible, 21)}>{getSumClaimsFromTheFilingDaysForResponsibleOver(group, 20, responsible)}</span></td>
-                          <td style={{ textAlign: "center" }}><span onClick={() => showCaims(group.groupName, responsible, 1095)}>{getSumClaimsFromTheFilingDaysForResponsibleOver1095(group, responsible)}</span></td>
+                          }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{responsible}
+                          </td>
+                          <td>
+                            <span onClick={() => showCaims(group.groupName, responsible)}>
+                              &nbsp;&nbsp;{getSumClaimsResponsible(group, responsible)}
+                            </span>
+                          </td>
+                          {periods.map(period => (
+                            <td className="quantity-claims-in-table">
+                              <span onClick={() => showCaims(group.groupName, responsible, period.num)}>
+                                {getSumClaimsFromTheFilingDaysForResponsible(group, period.num, responsible)}
+                              </span>
+                            </td>))}
+                          <td className="quantity-claims-in-table">
+                            <span onClick={() => showCaims(group.groupName, responsible, 21)}>
+                              {getSumClaimsFromTheFilingDaysForResponsibleOver(group, 20, responsible)}
+                            </span>
+                          </td>
+                          <td className="quantity-claims-in-table">
+                            <span onClick={() => showCaims(group.groupName, responsible, 1095)}>
+                              {getSumClaimsFromTheFilingDaysForResponsibleOver1095(group, responsible)}
+                            </span>
+                          </td>
                         </tr>
-                        {
-                          nestingViewGroupLevRes.includes(responsible)
+                        {nestingViewGroupLevRes.includes(responsible)
                           && Object.keys(group.responsibles[responsible])
                             .sort((a, b) => {
                               if (selectedPeriod === null) {
@@ -159,45 +169,50 @@ export function GroupLevel(
                             })
                             .map(stage => {
                               return <tr
-                                className="table-row-responsible-level"
-                                style={{ cursor: "pointer" }}
+                                className="table-row-sub-level"
                                 onClick={(event) => {
                                   event.stopPropagation();
                                   rowsAccordeon(stage);
                                 }}
                               >
-                                <td onClick={(event) => { toggleRowsAccordeon(event, stage) }}>
+                                <td
+                                  onClick={(event) => { toggleRowsAccordeon(event, stage) }}
+                                  className="table-row-buttom-level">
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                   {stage}
                                 </td>
-                                <td><span onClick={() => showCaims(group.groupName, responsible, null, stage)}>&nbsp;&nbsp;{getSumClaimsResponsibleAndStage(group, responsible, stage)}</span></td>
-                                {periods.map(period => <td style={{ textAlign: "center" }}><span onClick={() => showCaims(group.groupName, responsible, period.num, stage)}>{getSumClaimsFromTheFilingDaysForResponsibleAndStages(group, period.num, responsible, stage)}</span></td>)}
-                                <td style={{ textAlign: "center" }}><span onClick={() => showCaims(group.groupName, responsible, 21, stage)}>{getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver(group, 20, responsible, stage)}</span></td>
-                                <td style={{ textAlign: "center" }}><span onClick={() => showCaims(group.groupName, responsible, 1095, stage)}>{getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver1095(group, responsible, stage)}</span></td>
+                                <td>
+                                  <span onClick={() => showCaims(group.groupName, responsible, null, stage)}>
+                                    &nbsp;&nbsp;{getSumClaimsResponsibleAndStage(group, responsible, stage)}
+                                  </span>
+                                </td>
+                                {periods.map(period => (
+                                  <td className="quantity-claims-in-table">
+                                    <span onClick={() => showCaims(group.groupName, responsible, period.num, stage)}>
+                                      {getSumClaimsFromTheFilingDaysForResponsibleAndStages(group, period.num, responsible, stage)}
+                                    </span>
+                                  </td>))}
+                                <td className="quantity-claims-in-table">
+                                  <span onClick={() => showCaims(group.groupName, responsible, 21, stage)}>
+                                    {getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver(group, 20, responsible, stage)}
+                                  </span>
+                                </td>
+                                <td className="quantity-claims-in-table">
+                                  <span onClick={() => showCaims(group.groupName, responsible, 1095, stage)}>
+                                    {getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver1095(group, responsible, stage)}
+                                  </span>
+                                </td>
                               </tr>
                             })}
                       </>
                     })
                 }
               </tbody>
-            }
             )
+          })
         }
         <TableFooterGeneral claims={claims} setStatePeriod={setStatePeriod} />
-        {/* <tfoot style={{ backgroundColor: "grey" }} >
-          <tr style={{ fontWeight: "700" }}>
-            <td>&nbsp;&nbsp;Итого:</td>
-            <td>{getSumCommonAll(claims, null)}</td>
-            {
-              periods.map(period => {
-                return <td style={{ textAlign: "center" }}>{getSumCommonAll(claims, period.num)}</td>
-              })
-            }
-            <td style={{ textAlign: "center" }}>{getSumCommonAll(claims, 21)}</td>
-            <td style={{ textAlign: "center" }}>{getSumCommonAll(claims, 1095)}</td>
-          </tr>
-        </tfoot> */}
       </table >
     )
   }
