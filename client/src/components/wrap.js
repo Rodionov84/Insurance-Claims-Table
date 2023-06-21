@@ -2,7 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { GroupLevel } from "./group-level";
+import { GroupLevel } from "./tableOfClaims/GroupLevel";
 import { CommonLevelStages } from "./tableOfClaims/CommonLevelStages";
 import { GroupsLevelStagesAndResponsibles } from "./groups-level-stages-and-responsibles";
 import { ListOfClaimsGrRespStages } from "./listOfClaims/lists/ListOfClaimsGrRespStages";
