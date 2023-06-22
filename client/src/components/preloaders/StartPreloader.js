@@ -1,4 +1,4 @@
-import preloader from "../imgs/waves.gif";
+import preloader from "../../imgs/waves.gif";
 
 export function StartPreloader() {
   return <>

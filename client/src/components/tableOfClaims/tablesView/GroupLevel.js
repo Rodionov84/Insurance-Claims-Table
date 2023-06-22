@@ -8,12 +8,12 @@ import {
   getSumClaimsResponsibleAndStage, getSumClaimsFromTheFilingDaysForResponsibleAndStages,
   getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver, getSumClaimsFromTheFilingDaysOver1095,
   getSumClaimsFromTheFilingDaysForResponsibleOver1095, getSumClaimsFromTheFilingDaysForResponsibleAndStagesOver1095
-} from "../../calculations/get-sum-claims";
+} from "../../../calculations/get-sum-claims";
 
-import { periods } from "../../imgs/period-icons";
-import { TableHeaderGeneralList } from "./TableHeaderGeneralList";
-import { TableFooterGeneral } from "./TableFooterGeneral";
-import { StartPreloader } from "../start-preloader";
+import { periods } from "../../../imgs/period-icons";
+import { TableHeaderGeneralList } from "../tableSkeleton/TableHeaderGeneralList";
+import { TableFooterGeneral } from "../tableSkeleton/TableFooterGeneral";
+import { StartPreloader } from "../../preloaders/StartPreloader";
 
 export function GroupLevel(
   {

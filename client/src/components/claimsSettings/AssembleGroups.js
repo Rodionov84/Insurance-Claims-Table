@@ -1,4 +1,4 @@
-import { curatorsAndGroups } from '../data/curators-and-groups';    //перенести в стейт для возможности правки
+import { curatorsAndGroups } from '../../data/curators-and-groups';    //перенести в стейт для возможности правки
 import { useState } from 'react';
 
 export function AssembleGroups({ stateDragBranches, setStateDragBranches }) {
@@ -64,7 +64,7 @@ export function AssembleGroups({ stateDragBranches, setStateDragBranches }) {
       {Object.keys(result).map(group => {
         return <>
           <div style={{ width: "25%", margin: "15px", }}>
-            <div style={{ minHeight: "50px" }}>
+            <div style={{ minHeight: "75px" }}>
               <h5>{result[group].groupName}</h5>
             </div>
             <div

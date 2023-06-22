@@ -1,4 +1,4 @@
-import { periods } from "../../imgs/period-icons";
+import { periods } from "../../../imgs/period-icons";
 
 export function TableHeaderGeneralList({ setSelectedPeriod, nameOfTableHeader }) {
   return (

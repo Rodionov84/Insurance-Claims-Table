@@ -1,5 +1,5 @@
-import { periods } from "../../imgs/period-icons";
-import { getSumCommonAll } from "../../calculations/get-sum-claims";
+import { periods } from "../../../imgs/period-icons";
+import { getSumCommonAll } from "../../../calculations/get-sum-claims";
 import { useNavigate } from "react-router-dom";
 
 export function TableFooterGeneral({claims, setStatePeriod}) {

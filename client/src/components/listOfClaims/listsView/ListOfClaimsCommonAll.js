@@ -1,5 +1,5 @@
-import { HeaderOfListsClaims } from "../ListSkeleton/HeaderOfListsClaims";
-import { ListOfClaims } from "../ListSkeleton/ListOfClaims";
+import { HeaderOfListsClaims } from "../listSkeleton/HeaderOfListsClaims";
+import { ListOfClaims } from "../listSkeleton/ListOfClaims";
 
 export function ListOfClaimsCommonAll({ statePeriod, claims, setStateView, stateView }) {
   let index = 1

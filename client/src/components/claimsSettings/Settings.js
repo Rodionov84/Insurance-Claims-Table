@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { stages, typesOfClaim, refundMethods, typesOfAppeal, methodsOfReceiving } from "../data/entities-of-view"
+import { stages, typesOfClaim, refundMethods, typesOfAppeal, methodsOfReceiving } from "../../data/entities-of-view"
 
 export function Settings(
   {

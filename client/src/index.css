@@ -15,7 +15,7 @@ code {
     monospace;
 }
 
-header {
+.wrap-header {
   display: flex;
   position: sticky;
   top: 0;
@@ -26,10 +26,14 @@ header {
   flex-wrap: nowrap;
 }
 
-/* .table-header {
-  position: sticky;
+.top-btn {
+  background-color: #006; 
+  color: white;
+}
 
-} */
+.cut-data {
+  margin: 6px 0 0 10%
+}
 
 /*thead th, tfoot th, tfoot td {*/
 /*    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));*/

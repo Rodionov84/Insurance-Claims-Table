@@ -1,4 +1,4 @@
-import { Wrap } from "./components/wrap";
+import { Wrap } from "./components/Wrap";
 
 
 function App() {

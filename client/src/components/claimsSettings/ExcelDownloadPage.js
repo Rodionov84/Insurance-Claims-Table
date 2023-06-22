@@ -1,5 +1,5 @@
 import { useState } from "react";
-import preloader from "../imgs/waves.gif"
+import preloader from "../../imgs/waves.gif";
 
 export function ExcelDownloadPage({ preloaderCssClass, setPreloaderCssClass }) {
   const [drag, setDrag] = useState(false);

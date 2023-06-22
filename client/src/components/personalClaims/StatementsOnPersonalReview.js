@@ -1,9 +1,9 @@
-import { periods } from "../imgs/period-icons";
+import { periods } from "../../imgs/period-icons";
 import { useState } from "react";
-import { EmployeeSelectionForm } from "./employee-selection-form";
-import { getSumPersonal } from "../calculations/get-sum-claims";
+import { EmployeeSelectionForm } from "./EmployeeSelectionForm";
+import { getSumPersonal } from "../../calculations/get-sum-claims";
 import { useNavigate } from "react-router-dom";
-import { StartPreloader } from "./start-preloader";
+import { StartPreloader } from "../preloaders/StartPreloader";
 
 export function StatementsOnPersonalReview({
   claims,
