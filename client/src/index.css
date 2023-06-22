@@ -63,6 +63,15 @@ table {
   background-color: #f2f2f2;
 }
 
+.table-row-top-level-common {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.table-row-top-level-common:hover {
+  background-color: #f2f2f2;
+}
+
 .table-row-sub-level {
   cursor: pointer;
 }

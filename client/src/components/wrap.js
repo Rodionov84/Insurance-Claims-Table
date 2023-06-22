@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { GroupLevel } from "./tableOfClaims/GroupLevel";
 import { CommonLevelStages } from "./tableOfClaims/CommonLevelStages";
-import { GroupsLevelStagesAndResponsibles } from "./groups-level-stages-and-responsibles";
+import { GroupsLevelStagesAndResponsibles } from "./tableOfClaims/GroupsLevelStagesAndResponsibles";
 import { ListOfClaimsGrRespStages } from "./listOfClaims/lists/ListOfClaimsGrRespStages";
 import { ListOfClaimsGrStagesResp } from "./listOfClaims/lists/ListOfClaimsGrStagesResp";
 import { ListOfClaimsGroups } from "./listOfClaims/lists/ListOfClaimsGroups";
@@ -75,16 +75,10 @@ export function Wrap() {
       element: <GroupLevel
         claims={claims}
         groups={data}
-        stateCommonView={stateCommonView}
-        stateGroup={stateGroup}
-        stateResponsible={stateResponsible}
-        statePeriod={statePeriod}
-        stateStage={stateStage}
         setStateGroup={setStateGroup}
-        setStateResponsible={setStateResponsible}
         setStatePeriod={setStatePeriod}
+        setStateResponsible={setStateResponsible}
         setStateStage={setStateStage}
-        changerView={changerView}
         nestingViewGroupLevRes={nestingViewGroupLevRes}
         setNestingViewGroupLevRes={setNestingViewGroupLevRes}
       />,
@@ -94,17 +88,9 @@ export function Wrap() {
       element: <CommonLevelStages
         claims={claims}
         commonStages={dataForCommonStages}
-        stateCommonView={stateCommonView}
-        stateCommonViewOptions={stateCommonViewOptions}
-        stateGroup={stateGroup}
-        stateResponsible={stateResponsible}
-        statePeriod={statePeriod}
-        stateStage={stateStage}
-        setStateGroup={setStateGroup}
+        setStateStage={setStateStage}
         setStateResponsible={setStateResponsible}
         setStatePeriod={setStatePeriod}
-        setStateStage={setStateStage}
-        changerView={changerView}
         nestingViewCommonLevStages={nestingViewCommonLevStages}
         setNestingViewCommonLevStages={setNestingViewCommonLevStages}
       />,
@@ -114,18 +100,10 @@ export function Wrap() {
       element: <GroupsLevelStagesAndResponsibles
         claims={claims}
         groups={dataForStagesAndResponsibles}
-        setCurrentBranch={setCurrentBranch}
-        currentBranch={currentBranch}
-        stateCommonView={stateCommonView}
-        stateGroup={stateGroup}
-        stateResponsible={stateResponsible}
-        statePeriod={statePeriod}
-        stateStage={stateStage}
         setStateGroup={setStateGroup}
         setStateResponsible={setStateResponsible}
         setStatePeriod={setStatePeriod}
         setStateStage={setStateStage}
-        changerView={changerView}
         nestingViewGroupLevStages={nestingViewGroupLevStages}
         setNestingViewGroupLevStages={setNestingViewGroupLevStages}
       />,
