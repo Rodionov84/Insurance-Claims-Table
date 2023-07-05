@@ -6,8 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0 calc(19px - (100vw - 100%)) 0 0;
-  min-width: 1350px;
-  overflow-x: hidden;
+  min-width: 1349px;
+  /* overflow-x: hidden; */
 }
 
 code {
@@ -27,8 +27,10 @@ code {
 }
 
 .top-btn {
-  background-color: #006; 
+  background-color: #006;
   color: white;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.75rem;
 }
 
 .cut-data {
@@ -51,8 +53,10 @@ tbody tr:nth-child(even) {
 }
 
 table {
-  margin: 0 auto;
-  width: 100%;
+  margin: 0 0;
+  /* width: 1349px; */
+  width: 98.8vw;
+  font-size: 0.9rem;
 
 }
 
@@ -93,10 +97,6 @@ table {
   background-color: #f2f2f2;
 }
 
-.quantity-claims-in-table {
-  text-align: center;
-}
-
 .th-table-header {
   padding-right: 18px;
   width: 2%
@@ -121,10 +121,6 @@ table {
   width: 20px;
   padding-bottom: 2px;
   margin-left: 32%;
-}
-
-.staff-block {
-  padding-right: 42px;
 }
 
 .empty-file-slot {
@@ -213,4 +209,129 @@ table {
 
 .reload-data-link:hover {
   color: #006;
+}
+
+.cells-with-numbers {
+  text-align: center;
+  cursor: pointer;
+}
+
+.table-header-list-claims {
+  position: sticky;
+  top: 38px;
+  background-color: CadetBlue;
+  height: 32px;
+}
+
+.common-header {
+  cursor: default !important;
+}
+
+.table-first-sell {
+  width: 45%;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.table-second-sell {
+  width: 5%;
+  cursor: default;
+  text-align: center;
+}
+
+.table-row-responsible-level {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.arrow-cursor {
+  cursor: default;
+}
+
+.link-cursor {
+  cursor: default;
+}
+
+.footer-personal-list {
+  background-color: silver;
+  font-weight: 700;
+}
+
+.content-center {
+  text-align: center;
+}
+
+.buttom-box-for-download {
+  margin: 5px auto;
+  width: 15%;
+}
+
+.asseble-groups-box {
+  display: flex;
+  align-items: flex-start;
+}
+
+.groups-wrap {
+  width: 25%;
+  margin: 15px;
+}
+
+.groups-wrap-title {
+  min-height: 75px;
+}
+
+.group-compound-wrap {
+  width: 100%;
+  min-height: 1400px;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.list-of-claims-header {
+  position: sticky;
+  background: silver;
+  font-weight: 700;
+  top: 38px;
+}
+
+.first-column-list-of-claims {
+  width: 3%;
+}
+
+.second-column-list-of-claims {
+  width: 18%;
+}
+
+.third-column-list-of-claims {
+  width: 2%;
+}
+
+.fourth-column-list-of-claims {
+  width: 5%;
+}
+
+.fifth-column-list-of-claims {
+  width: 11%;
+}
+
+.sixth-column-list-of-claims {
+  width: 27%;
+}
+
+.seventh-column-list-of-claims {
+  width: 14%;
+}
+
+.eighth-column-list-of-claims {
+  width: 20%;
+}
+
+.header-paddings-calendar {
+  padding: 0 0 3px 5px;
+}
+
+.header-paddings-stopwatch {
+  padding: 0 0 3px 25px;
 }

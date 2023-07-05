@@ -3,9 +3,9 @@ import { periods } from "../../../imgs/period-icons";
 export function TableHeaderGeneralList({ setSelectedPeriod, nameOfTableHeader }) {
   return (
     <thead>
-      <tr style={{ position: "sticky", top: "38px", backgroundColor: "CadetBlue" }}>
-        <th style={{ width: "45%", fontSize: "20px", cursor: "default" }}>&nbsp;&nbsp;{nameOfTableHeader}</th>
-        <th onClick={() => setSelectedPeriod(null)} style={{ width: "5%", cursor: "default" }}>
+      <tr className="table-header-list-claims">
+        <th className="common-header table-first-sell">&nbsp;&nbsp;{nameOfTableHeader}</th>
+        <th onClick={() => setSelectedPeriod(null)} className="table-second-sell">
           Всего:
         </th>
         {periods.map(period => {
@@ -16,7 +16,6 @@ export function TableHeaderGeneralList({ setSelectedPeriod, nameOfTableHeader })
                 {period.icon}
               </svg>
             </div>
-            <div className="staff-block"></div>
           </th>
         })
         }

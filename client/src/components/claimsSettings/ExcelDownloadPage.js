@@ -46,7 +46,7 @@ export function ExcelDownloadPage({ preloaderCssClass, setPreloaderCssClass }) {
 
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Загрузка файла Excel:</h1>
+      <h1 className="content-center">Загрузка файла Excel:</h1>
       <div>
         {drag
           ? <div className="over-file-slot"
@@ -76,7 +76,10 @@ export function ExcelDownloadPage({ preloaderCssClass, setPreloaderCssClass }) {
           </div>
         }
       </div>
-      <div style={{ margin: "5px auto", width: "15%" }} ><h6 style={{textAlign: "center"}}>Или</h6> 
+      <div className="buttom-box-for-download" >
+        <h6 className="content-center">
+          Или
+        </h6>
         <input title="Выберите файл для загрузки" type="file" accept='.xlsx' onChange={e => {
           e.preventDefault();
           downloaderExcelFile(e.target.files[0]);

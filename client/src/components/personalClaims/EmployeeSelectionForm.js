@@ -29,7 +29,7 @@ export function EmployeeSelectionForm({ claims, setCurrentEmployee, selectionFor
       <div className="employee-selection-form">
         <h5 >Выбрать сотрудника:</h5>
         <div className="employee-selection-row">
-          <select type="text" class="form-select form-select-sm" aria-label=".form-select-sm example" onChange={employeeSelected}>
+          <select type="text" className="form-select form-select-sm" aria-label=".form-select-sm example" onChange={employeeSelected}>
           <option value="ФИО">Выбрать сотрудника</option>
             {employees.map((employee => {
               return <option value={employee}>{employee}</option>

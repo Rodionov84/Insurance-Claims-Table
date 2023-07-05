@@ -60,29 +60,29 @@ export function AssembleGroups({ stateDragBranches, setStateDragBranches }) {
 
   }
   return <>
-    <div style={{ display: "flex", alignItems: "flex-start" }}>
+    <div className="asseble-groups-box">
       {Object.keys(result).map(group => {
         return <>
-          <div style={{ width: "25%", margin: "15px", }}>
-            <div style={{ minHeight: "75px" }}>
+          <div className="groups-wrap">
+            <div className="groups-wrap-title">
               <h5>{result[group].groupName}</h5>
             </div>
             <div
-              style={{ width: "100%", minHeight: "700px" }}
+              className="group-compound-wrap"
               onDragOver={(e) => dragOverHandler(e)}
               onDrop={(e) => dropBranchHandler(e, group)}>
               <ol>
                 {result[group].branches
                   .map(branch => {
                     return (
-                      <li
+                      <li 
+                        className="cursor-grab"
                         draggable={true}
                         onDragStart={(e) => dragStartHandler(e, branch)}
                         onDragLeave={(e) => dragEndHandler(e)}
                         onDragEnd={(e) => dragEndHandler(e)}
                         onDragOver={(e) => dragOverHandler(e)}
                         onDrop={(e) => dropHandler(e, branch)}
-                        style={{ cursor: "grab" }}
                       >{branch}</li>
                     )
                   })

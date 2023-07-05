@@ -7,10 +7,10 @@ export function ListOfClaims({ claim, index }) {
         <td title={titleLable}>
           {claim.claimNumber}
         </td>
-        <td style={{ textAlign: "center" }} title={`Дата получения полного комплекта документов:  ${claim.dateReceivedSetOfDocuments}`}>
+        <td className="content-center" title={`Дата получения полного комплекта документов:  ${claim.dateReceivedSetOfDocuments}`}>
           {claim.filingDays}
         </td>
-        <td style={{ textAlign: "center" }} title={'Срок нахождения на стадии'}>
+        <td className="content-center" title={'Срок нахождения на стадии'}>
           {claim.taskStartDays}
         </td>
         <td>

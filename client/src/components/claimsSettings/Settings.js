@@ -12,7 +12,6 @@ export function Settings(
 
   return <div>
     <br></br>
-
     <h4>
       &nbsp;&nbsp;&nbsp;&nbsp;Настройки
     </h4>
@@ -130,12 +129,8 @@ export function Settings(
         })}
       </div>
       <br></br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="/" className="btn btn-secondary" style={{ backgroundColor: "#006" }}>Применить</Link>
       <br></br>
       <br></br>
-      <br></br>
-
     </div>
   </div>
 }

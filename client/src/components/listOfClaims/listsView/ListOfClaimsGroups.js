@@ -7,7 +7,7 @@ export function ListOfClaimsGroups({ groups, stateGroup, statePeriod, setStateVi
   } else {
     return <div>
       <h5>{stateGroup}</h5>
-      <table style={{ width: "100%" }}>
+      <table>
         <tbody>
           <HeaderOfListsClaims setStateView={setStateView} />
           {groups

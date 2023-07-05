@@ -75,26 +75,26 @@ export function CommonLevelStages(
                 <td onClick={(event) => { toggleRowsAccordeon(event, stage) }}>
                   &nbsp;&nbsp;&nbsp;{stage}
                 </td>
-                <td>
+                <td className="cells-with-numbers">
                   <span onClick={() => showCaimsStage(stage)}>
-                    &nbsp;&nbsp;{getSumClaimsCommon(commonStages[stage])}
+                    {getSumClaimsCommon(commonStages[stage])}
                   </span>
                 </td>
                 {periods.map((period) => {
                   return (
-                    <td className="quantity-claims-in-table">
+                    <td className="cells-with-numbers">
                       <span onClick={() => showCaimsStage(stage, null, period.num)}>
                         {getSumClaimsFromTheFilingDaysCommon(commonStages[stage], period.num)}
                       </span>
                     </td>
                   )
                 })}
-                <td className="quantity-claims-in-table">
+                <td className="cells-with-numbers">
                   <span onClick={() => showCaimsStage(stage, null, 21)}>
                     {getSumClaimsFromTheFilingDaysCommonOver(commonStages[stage])}
                   </span>
                 </td>
-                <td className="quantity-claims-in-table">
+                <td className="cells-with-numbers">
                   <span onClick={() => showCaimsStage(stage, null, 1095)}>
                     {getSumClaimsFromTheFilingDaysCommonOver1095(commonStages[stage])}
                   </span>
@@ -118,23 +118,23 @@ export function CommonLevelStages(
                         <td onClick={(event) => { toggleRowsAccordeon(event, responsible) }} className="table-row-buttom-level">
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{responsible}
                         </td>
-                        <td>
+                        <td className="cells-with-numbers">
                           <span onClick={() => showCaimsStage(stage, responsible)}>
-                            &nbsp;&nbsp;{getSumClaimsResponsibleCommon(commonStages[stage][responsible], responsible)}
+                            {getSumClaimsResponsibleCommon(commonStages[stage][responsible], responsible)}
                           </span>
                         </td>
-                        {periods.map((period) => <td className="quantity-claims-in-table">
+                        {periods.map((period) => <td className="cells-with-numbers">
                           <span onClick={() => showCaimsStage(stage, responsible, period.num)}>
                             {getSumClaimsResponsibleCommon(commonStages[stage][responsible], responsible, period.num)}
                           </span>
                         </td>
                         )}
-                        <td className="quantity-claims-in-table">
+                        <td className="cells-with-numbers">
                           <span onClick={() => showCaimsStage(stage, responsible, 21)}>
                             {getSumClaimsResponsibleCommonOver(commonStages[stage][responsible], responsible, 21)}
                           </span>
                         </td>
-                        <td className="quantity-claims-in-table">
+                        <td className="cells-with-numbers">
                           <span onClick={() => showCaimsStage(stage, responsible, 1095)}>
                             {getSumClaimsResponsibleCommonOver1095(commonStages[stage][responsible], responsible, 1095)}
                           </span>

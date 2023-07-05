@@ -294,8 +294,7 @@ export function Wrap() {
         <Link to='/responsibles-and-stages' className='btn btn-secondary top-btn'> Группы - сотрудники - стадии</Link>
         <Link to='/stages-and-responsibles' className='btn btn-secondary top-btn'>Группы - стадии - сотрудники</Link>
         <Link to='/assemble-groups' className='btn btn-secondary top-btn'>Сформировать группы</Link>
-        {/* <Link to='download-excel-file' className='btn btn-secondary top-btn' >Обновить данные</Link>
-        <Link to="http://php-sql/" className='btn btn-secondary top-btn' title="Нужна помощь?" onClick={(event) => { event.preventDefault(); window.open("http://php-sql/"); }}>FAQ</Link> */}
+        <Link to="http://php-sql/" className='btn btn-secondary top-btn' title="Нужна помощь?" onClick={(event) => { event.preventDefault(); window.open("http://www.php-sql.site/"); }}>Help?</Link>
         <div className="cut-data">
           {
             <div>
@@ -308,6 +307,6 @@ export function Wrap() {
         </div>
       </header >
       {routes}
-    </div>
+    </div >
   )
 }
